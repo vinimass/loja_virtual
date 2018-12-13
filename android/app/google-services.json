@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "520826006651",
+    "firebase_url": "https://lojaflutter-3c607.firebaseio.com",
+    "project_id": "lojaflutter-3c607",
+    "storage_bucket": "lojaflutter-3c607.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520826006651:android:b1c1649d7b6b472b",
+        "android_client_info": {
+          "package_name": "br.com.massignam.vinicius.lojavirtual"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "520826006651-890voj4dnps7e9s3glpisakrgmvg8j60.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkRGB2OBg7Sg-5rVIb9myB0TxijzJPLRs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
