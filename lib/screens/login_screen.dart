@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loja_virtual/screens/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
 
@@ -20,7 +21,9 @@ class LoginScreen extends StatelessWidget {
             ),
             textColor: Colors.white,
             onPressed: (){
-
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context)=>SignUpScreen())
+              );
             },
           )
         ],
