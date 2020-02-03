@@ -3,13 +3,24 @@ import 'package:loja_virtual/models/user_model.dart';
 import 'package:loja_virtual/screens/signup_screen.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  _State createState() => _State();
+}
 
+class _State extends State<LoginScreen> {
+  
   final _formKey = GlobalKey<FormState>();
+
+  final _emailController = TextEditingController();
+  final _passController = TextEditingController();
+
+  final _scaffodKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffodKey,
       appBar: AppBar(
         title: Text("Entrar"),
         centerTitle: true,
@@ -41,6 +52,7 @@ class LoginScreen extends StatelessWidget {
                 padding: EdgeInsets.all(16.0),
                 children: <Widget>[
                   TextFormField(
+                    controller: _emailController,
                     decoration: InputDecoration(
                       hintText: "E-mail"
                     ),
@@ -52,6 +64,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 16.0,),
                   TextFormField(
+                    controller: _passController,
                     decoration: InputDecoration(
                         hintText: "Senha"
                     ),
@@ -83,14 +96,30 @@ class LoginScreen extends StatelessWidget {
                         if(_formKey.currentState.validate()){
 
                         }
-
-                        model.signIn();
+                        model.signIn(
+                          email: _emailController.text,
+                          pass: _passController.text,
+                          onSuccess: _onSuccess,
+                          onFail: _onFail
+                        );
                       },
                     ))
                 ],
               ),
             );
         }
+      )
+    );
+  }
+  void _onSuccess() {
+    Navigator.of(context).pop();
+  }
+
+  void _onFail() {
+    _scaffodKey.currentState.showSnackBar(
+      SnackBar(content: Text("Falha ao entrar!"),
+        backgroundColor: Colors.redAccent,
+        duration: Duration(seconds: 2),
       )
     );
   }
